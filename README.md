@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my work as a Junior Machine Learning Engineer. Built with HTML, Tailwind CSS, and JavaScript. Deployed on Vercel.
 
-🔗 **Live site**: [jana-portfolio.vercel.app](https://jana-portfolio.vercel.app)
+🔗 **Live site**: [jana-portfolio.vercel.app](https://jana-eleskandrany-portfolio.vercel.app/)
 
 ## Features
 
