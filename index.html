@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <style>
     * {
       scroll-behavior: smooth;
@@ -171,6 +172,14 @@
       border-radius: 50%;
       border: 3px solid #F9FAFB;
       box-shadow: 0 0 0 3px #3B82F6;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;  
+      scrollbar-width: none;  
     }
   </style>
   <style>body { box-sizing: border-box; }</style>
@@ -450,59 +459,126 @@
     </div>
    </div>
   </section><!-- Projects Section -->
-  <section id="projects" class="py-20 section-hidden">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title text-3xl sm:text-4xl font-bold text-[#1A2B3C] mb-12">Projects</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Project Card 1 -->
-     <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent">
-      <div class="h-40 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center">
-       <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-       </svg>
+<section id="projects" class="py-20 section-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="section-title text-3xl sm:text-4xl font-bold text-[#1A2B3C] mb-12">Projects & Learning</h2>
+
+    <!-- Carousel wrapper with arrows -->
+    <div class="relative group">
+      <!-- Scroll buttons -->
+      <button id="scroll-left" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-[#1A2B3C] rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -ml-5 focus:outline-none" aria-label="Scroll left">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="scroll-right" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-[#1A2B3C] rounded-full p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -mr-5 focus:outline-none" aria-label="Scroll right">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Scrollable container with horizontal padding -->
+        <div id="projects-scroll" class="flex overflow-x-auto gap-6 px-2 pt-4 pb-4 scroll-smooth hide-scrollbar"><!-- Project Card 1: Car Acceptability -->
+        <div class="flex-none w-96 project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#14B8A6] transition-all">
+          <div class="h-52 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center overflow-hidden">
+          <img src="./assets/car_thumbnail.png" alt="Car Acceptability SVM project" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Car Acceptability Classification (SVM)</h3>
+            <p class="text-gray-600 text-sm mb-4">Built an SVM classifier on the UCI Car Evaluation dataset (1728 cars, 6 features). Manual encoding, feature scaling, RBF kernel – 95% test accuracy. Tools: Python, Scikit-learn, Pandas.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">Python</span>
+              <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">Scikit-learn</span>
+              <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">Classification</span>
+            </div>
+            <a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors">
+              View on GitHub
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Card 2: Titanic Survival -->
+        <div class="flex-none w-96 project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#14B8A6] transition-all">
+          <div class="h-52 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center overflow-hidden">
+          <img src="./assets/titanic_thumbnail.png" alt="Car Acceptability SVM project" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Titanic Survival Prediction (Logistic Regression)</h3>
+            <p class="text-gray-600 text-sm mb-4">Analyzed Titanic data (891 passengers). EDA showed higher survival for 1st class, females, children. Logistic Regression achieved 80% accuracy. Tools: Python, Pandas, Scikit-learn.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">Python</span>
+              <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">Logistic Regression</span>
+              <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">EDA</span>
+            </div>
+            <a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors">
+              View on GitHub
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Card 3: Credit Score Classification -->
+        <div class="flex-none w-96 project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#14B8A6] transition-all">
+          <div class="h-52 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center overflow-hidden">
+          <img src="./assets/credit_thumbnail.png" alt="Car Acceptability SVM project" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Credit Score Classification (Decision Tree)</h3>
+            <p class="text-gray-600 text-sm mb-4">Built a Decision Tree on a messy dataset of 100k records. Extensive cleaning: handled missing values, parsed text fields, encoded categories. Achieved 72% test accuracy (max_depth=9). Tools: Python, Pandas, Scikit-learn.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">Python</span>
+              <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">Decision Tree</span>
+              <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">Data Cleaning</span>
+            </div>
+            <a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors">
+              View on GitHub
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project Card 4: Smart Parking System (Embedded) -->
+        <div class="flex-none w-96 project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-[#14B8A6] transition-all">
+          <div class="h-52 bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center overflow-hidden">
+          <img src="./assets/parking_thumbnail.png" alt="Car Acceptability SVM project" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Smart Parking System (ATmega32)</h3>
+            <p class="text-gray-600 text-sm mb-4">First hardware project, built during Mansoura Robotics Hackathon 8. ATmega32 with IR sensors, DC motor, 7‑segment display, and LEDs. Tracks slots, controls gate, provides visual feedback. Written in Embedded C.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">Embedded C</span>
+              <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">ATmega32</span>
+              <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">IoT</span>
+            </div>
+            <a href="https://github.com/janawalid/Smart-Parking-System-embedded-prototype" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors">
+              View on GitHub
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="p-6">
-       <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">ML Classification Pipeline</h3>
-       <p class="text-gray-600 text-sm mb-4">End-to-end classification model with preprocessing, training, and evaluation pipelines built for production deployment.</p>
-       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">Python</span> <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">Scikit-learn</span> <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">MLflow</span>
-       </div><a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors"> View on GitHub 
-        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg></a>
-      </div>
-     </div><!-- Project Card 2 -->
-     <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent">
-      <div class="h-40 bg-gradient-to-br from-[#14B8A6] to-[#3B82F6] flex items-center justify-center">
-       <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-       </svg>
-      </div>
-      <div class="p-6">
-       <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Prediction Model System</h3>
-       <p class="text-gray-600 text-sm mb-4">Predictive analytics system with feature engineering and model optimization for real-world data scenarios.</p>
-       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">TensorFlow</span> <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">Pandas</span> <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">Azure</span>
-       </div><a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors"> View on GitHub 
-        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg></a>
-      </div>
-     </div><!-- Project Card 3 -->
-     <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent">
-      <div class="h-40 bg-gradient-to-br from-[#8B5CF6] to-[#14B8A6] flex items-center justify-center">
-       <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-       </svg>
-      </div>
-      <div class="p-6">
-       <h3 class="text-lg font-bold text-[#1A2B3C] mb-2">Embedded ML System</h3>
-       <p class="text-gray-600 text-sm mb-4">IoT-integrated embedded system with sensor data processing and real-time ML inference capabilities.</p>
-       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-xs rounded">ATmega32</span> <span class="px-2 py-1 bg-[#8B5CF6]/10 text-[#8B5CF6] text-xs rounded">C/C++</span> <span class="px-2 py-1 bg-[#14B8A6]/10 text-[#14B8A6] text-xs rounded">IoT</span>
-       </div><a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#3B82F6] hover:text-[#2563eb] text-sm font-medium transition-colors"> View on GitHub 
-        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg></a>
-      </div>
-     </div>
-    </div><!-- View More -->
-    <div class="text-center mt-10"><a href="https://github.com/janawalid" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center px-6 py-3 bg-[#1A2B3C] text-white font-semibold rounded-lg hover:bg-[#0f1a2a] shadow-lg transition-all">
-      <svg class="w-5 h-5 mr-2" fill="currentColor" viewbox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-      </svg> View All Projects on GitHub </a>
     </div>
-   </div>
-  </section><!-- Contact Section -->
+
+    <!-- View All Projects Button -->
+    <div class="text-center mt-10">
+      <a href="https://github.com/janawalid?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center px-6 py-3 bg-[#1A2B3C] text-white font-semibold rounded-lg hover:bg-[#0f1a2a] shadow-lg transition-all">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+        </svg>
+        See All on GitHub
+      </a>
+    </div>
+  </div>
+</section><!-- Contact Section -->
 <section id="contact" class="py-20 bg-[#1A2B3C] section-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Let's Connect</h2>
@@ -706,6 +782,32 @@
         }
       });
     });
+    // Horizontal scroll for projects
+    const scrollContainer = document.getElementById('projects-scroll');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+      const scrollAmount = 320; // Approx width of one card + gap
+
+      scrollLeftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+
+      scrollRightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+
+      const checkScroll = () => {
+        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        scrollLeftBtn.style.opacity = scrollContainer.scrollLeft <= 0 ? '0.3' : '1';
+        scrollRightBtn.style.opacity = scrollContainer.scrollLeft >= maxScroll - 1 ? '0.3' : '1';
+      };
+
+      scrollContainer.addEventListener('scroll', checkScroll);
+      window.addEventListener('resize', checkScroll);
+      setTimeout(checkScroll, 100); // initial check
+    }
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d69c326b577e18b',t:'MTc3MjU1MjY2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();     document.getElementById('current-year').textContent = new Date().getFullYear();
 </script></body>
