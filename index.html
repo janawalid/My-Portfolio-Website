@@ -181,6 +181,21 @@
       -ms-overflow-style: none;  
       scrollbar-width: none;  
     }
+    /* Course Modal */
+#courseModal {
+  transition: opacity 0.2s ease;
+}
+#courseModal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#courseModal:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+.course-card-modal {
+  transition: all 0.3s ease;
+}
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -323,36 +338,43 @@
        <p><span class="text-white font-medium">Duration:</span> 2023 - 2027</p>
        <p><span class="text-white font-medium">Grade:</span> <span class="text-[#14B8A6] font-semibold">Excellent</span></p>
       </div>
-     </div><!-- Relevant Courses -->
-     <div class="space-y-4">
-      <h3 class="text-xl font-bold text-[#1A2B3C] mb-4">Relevant Courses</h3>
-      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#14B8A6] transition-colors">
-       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-         <svg class="w-5 h-5 text-[#14B8A6]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-         </svg>
-        </div>
-        <div>
-         <h4 class="font-semibold text-[#1A2B3C]">Introduction to the Internet of Things - IoT Value Chain</h4>
-         <p class="text-sm text-gray-500">Mahara-Tech ITI Platform</p>
-         <p class="text-xs text-[#3B82F6] mt-1">August 2025</p>
-        </div>
-       </div>
+     </div><div class="space-y-4">
+  <h3 class="text-xl font-bold text-[#1A2B3C] mb-4">Relevant Courses</h3>
+  
+  <!-- Course 1 -->
+  <div class="course-card-modal bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#14B8A6] transition-colors cursor-pointer"
+       data-course="iot-value">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 bg-[#14B8A6]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-[#14B8A6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
       </div>
-      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#14B8A6] transition-colors">
-       <div class="flex items-start gap-4">
-        <div class="w-10 h-10 bg-[#8B5CF6]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-         <svg class="w-5 h-5 text-[#8B5CF6]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-         </svg>
-        </div>
-        <div>
-         <h4 class="font-semibold text-[#1A2B3C]">IoT Application Development Course</h4>
-         <p class="text-sm text-gray-500">Mahara-Tech ITI Platform</p>
-         <p class="text-xs text-[#3B82F6] mt-1">September 2025</p>
-        </div>
-       </div>
+      <div>
+        <h4 class="font-semibold text-[#1A2B3C]">Introduction to the Internet of Things - IoT Value Chain</h4>
+        <p class="text-sm text-gray-500">Mahara-Tech ITI Platform</p>
+        <p class="text-xs text-[#3B82F6] mt-1">August 2025</p>
       </div>
-     </div>
+    </div>
+  </div>
+
+  <!-- Course 2 -->
+  <div class="course-card-modal bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#14B8A6] transition-colors cursor-pointer"
+       data-course="iot-app">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 bg-[#8B5CF6]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-5 h-5 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      </div>
+      <div>
+        <h4 class="font-semibold text-[#1A2B3C]">IoT Application Development Course</h4>
+        <p class="text-sm text-gray-500">Mahara-Tech ITI Platform</p>
+        <p class="text-xs text-[#3B82F6] mt-1">September 2025</p>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
    </div>
   </section><!-- Skills Section -->
@@ -445,13 +467,13 @@
         <ul class="space-y-2 text-gray-600">
          <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-[#8B5CF6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg><span>Taught robotics fundamentals and embedded systems concepts</span></li>
+          </svg><span>Teaching robotics fundamentals and embedded systems concepts</span></li>
          <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-[#8B5CF6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg><span>Developed clear technical communication skills</span></li>
+          </svg><span>Developing clear technical communication skills</span></li>
          <li class="flex items-start gap-2">
           <svg class="w-5 h-5 text-[#8B5CF6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg><span>Mentored students in hands-on projects and problem-solving</span></li>
+          </svg><span>Mentoring students in hands-on projects and problem-solving</span></li>
         </ul>
        </div>
       </div>
@@ -810,5 +832,87 @@
     }
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d69c326b577e18b',t:'MTc3MjU1MjY2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();     document.getElementById('current-year').textContent = new Date().getFullYear();
-</script></body>
+</script>
+<!-- Course Details Modal (placed BEFORE the script that uses it) -->
+<div id="courseModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  <div class="relative bg-white rounded-2xl max-w-lg w-full mx-4 p-8 shadow-2xl border border-[#14B8A6]">
+    <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-[#1A2B3C] transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <h3 id="modalTitle" class="text-2xl font-bold text-[#1A2B3C] mb-2 pr-8"></h3>
+    <p id="modalPlatform" class="text-[#3B82F6] font-medium mb-4"></p>
+    <ul id="modalDetails" class="space-y-2 text-gray-600 list-disc pl-5"></ul>
+  </div>
+</div>
+
+<script>
+  // Course Modal functionality
+  const modal = document.getElementById('courseModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalPlatform = document.getElementById('modalPlatform');
+  const modalDetails = document.getElementById('modalDetails');
+  const closeModal = document.getElementById('closeModal');
+
+  const courseData = {
+    'iot-value': {
+      title: 'Introduction to the Internet of Things - IoT Value Chain',
+      platform: 'Mahara-Tech ITI Platform · August 2025',
+      details: [
+        'Mastered IoT building blocks, value chain components, and system architecture',
+        'Evaluated wireless technologies, carrier networks, and smart device requirements',
+        'Analyzed IoT Application Enablement Platforms (AEP) including Master of Things platform',
+        'Explored IoT/M2M development challenges and implementation strategies',
+        'Studied real-world IoT use cases across industries for practical solution design'
+      ]
+    },
+    'iot-app': {
+      title: 'IoT Application Development Course',
+      platform: 'Mahara-Tech ITI Platform · September 2025',
+      details: [
+        'Gained foundational knowledge of IoT architecture and Application Enablement Platforms (AEP)',
+        'Learned to acquire sensor data using multiple protocols and define real-time triggers/actions',
+        'Developed customized dashboards to visualize IoT device data in real-time',
+        'Built IoT monitoring applications with role-based access control for different user types',
+        'Implemented practical projects including a baby monitor system with sensor data acquisition'
+      ]
+    }
+  };
+
+  document.querySelectorAll('.course-card-modal').forEach(card => {
+    card.addEventListener('click', () => {
+      const key = card.dataset.course;
+      const data = courseData[key];
+      if (data) {
+        modalTitle.textContent = data.title;
+        modalPlatform.textContent = data.platform;
+        modalDetails.innerHTML = data.details.map(d => `<li>${d}</li>`).join('');
+        modal.classList.remove('hidden');
+      }
+    });
+  });
+
+  const hideModal = () => modal.classList.add('hidden');
+  if (closeModal) closeModal.addEventListener('click', hideModal);
+  if (modal) modal.addEventListener('click', (e) => {
+    if (e.target === modal) hideModal();
+  });
+</script>
+<!-- Course Details Modal -->
+<div id="courseModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  <div class="relative bg-white rounded-2xl max-w-lg w-full mx-4 p-8 shadow-2xl border border-[#14B8A6]">
+    <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-[#1A2B3C] transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <h3 id="modalTitle" class="text-2xl font-bold text-[#1A2B3C] mb-2 pr-8"></h3>
+    <p id="modalPlatform" class="text-[#3B82F6] font-medium mb-4"></p>
+    <ul id="modalDetails" class="space-y-2 text-gray-600 list-disc pl-5"></ul>
+  </div>
+</div>
+</body>
 </html>
